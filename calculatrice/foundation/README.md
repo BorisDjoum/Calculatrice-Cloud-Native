@@ -13,7 +13,7 @@ Terraform will perform the following actions:
       + fqdn            = (known after apply)
       + id              = (known after apply)
       + keep_empty_zone = false
-      + name            = "calculatrice-dev-nombinome1-nombinome2-polytech-dijon"
+      + name            = "calculatrice-dev-gilles-polytech-dijon"
       + priority        = (known after apply)
       + project_id      = (known after apply)
       + root_zone       = (known after apply)
@@ -28,7 +28,7 @@ Terraform will perform the following actions:
       + fqdn            = (known after apply)
       + id              = (known after apply)
       + keep_empty_zone = false
-      + name            = "calculatrice-nombinome1-nombinome2-polytech-dijon"
+      + name            = "calculatrice-gilles-polytech-dijon"
       + priority        = (known after apply)
       + project_id      = (known after apply)
       + root_zone       = (known after apply)

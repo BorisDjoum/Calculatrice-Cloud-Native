@@ -21,5 +21,5 @@ variable "environment" {
 }
 
 variable "binome" {
-  default = "nombinome1-nombinome2"
+  default = "gilles"
 }
