@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: gilles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+      - name: rabbitmq-container
+        image: rabbitmq:3-management-alpine # Image avec interface de gestion activée.
+        ports:
+        - containerPort: 5672 # Port AMQP.
+        - containerPort: 15672 # Port de l'interface de gestion.

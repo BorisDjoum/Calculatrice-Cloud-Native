@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: gilles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/g-frontend-tdgb-2024:gilles
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "50Mi" # Quantité minimale de mémoire demandée
+            cpu: "56m"     # Quantité minimale de CPU demandée
+

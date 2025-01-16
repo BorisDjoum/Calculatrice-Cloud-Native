@@ -1,0 +1,15 @@
+# Utiliser une image Python officielle
+FROM python:3.9-slim
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /consumer
+
+# Copier uniquement les fichiers nécessaires
+COPY requirements.txt /consumer/requirements.txt
+COPY consumer.py /consumer/
+
+# Installer les dépendances Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Commande pour démarrer le consommateur RabbitMQ
+CMD ["python", "consumer.py"]
