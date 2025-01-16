@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: gilles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend-container
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/backend-g-2024:gilles
+        ports:
+        - containerPort: 5000
+        env:
+        - name: RABBITMQ_HOST
+          value: rabbitmq-service
+        - name: REDIS_HOST 
+          value: redis-service
+        resources:
+          requests:
+            memory: 32Mi # Quantité minimale de mémoire demandée
+            cpu: 4m     # Quantité minimale de CPU demandée

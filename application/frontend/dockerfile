@@ -1,0 +1,12 @@
+FROM nginx:latest
+# Copier les fichiers HTML, CSS et JS dans le répertoire par défaut d'Nginx
+COPY . /usr/share/nginx/html
+
+# Copier le fichier nginx.conf personnalisé pour configurer le proxy_pass
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Exposer le port 80 pour servir le site web
+EXPOSE 80
+
+# Démarrer Nginx en mode non bloquant
+CMD ["nginx", "-g", "daemon off;"]

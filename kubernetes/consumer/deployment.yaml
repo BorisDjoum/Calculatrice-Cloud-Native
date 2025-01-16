@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  namespace: gilles
+spec:
+  replicas: 1 # Un seul réplica suffit pour traiter les messages séquentiellement.
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - name: consumer-container
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/consumer-g-2024:gilles # Remplacez par l'URL de l'image Docker poussée.
+        env:
+        - name: RABBITMQ_HOST
+          value: rabbitmq-service # Nom du Service RabbitMQ dans Kubernetes.
+        - name: REDIS_HOST
+          value: redis-service # Nom du Service Redis dans Kubernetes.
+        ports:
+        - containerPort: 5672 # Port AMQP (RabbitMQ) si nécessaire.
+        resources:
+          requests:
+            memory: "50Mi" # Quantité minimale de mémoire demandée
+            cpu: "56m"     # Quantité minimale de CPU demandée
+

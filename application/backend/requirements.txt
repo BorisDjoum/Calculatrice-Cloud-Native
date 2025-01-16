@@ -1,0 +1,4 @@
+flask ==3.0.2
+redis
+pika
+uuid
