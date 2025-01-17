@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bao Chatbot</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        .fixed-panel {
+            min-height: 500px;
+            max-height: 700px;
+            background-color: #19313c;
+            color: white;
+            overflow: auto;
+        }
+
+        .media-list {
+            overflow: auto;
+            clear: both;
+            display: table;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
+            line-break: strict;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 6px solid transparent;
+            border-radius: 25px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+        .panel-info {
+            border-color: #0c2735;
+        }
+
+        .panel-info>.panel-heading {
+            color: white;
+            background-color: #0c2735;
+            border-color: #0c2735;
+        }
+
+        .panel-footer {
+            padding: 10px 15px;
+            background-color: #0c2735;
+            border-top: 1px solid #0c2735;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px
+        }
+
+        body {
+            background: rgb(96, 143, 149);
+            /* Old browsers */
+            background: -moz-linear-gradient(-45deg, rgba(96, 143, 149, 1) 0%, rgba(0, 133, 136, 1) 9%, rgba(12, 36, 73, 1) 52%, rgba(26, 30, 59, 1) 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg, rgba(96, 143, 149, 1) 0%, rgba(0, 133, 136, 1) 9%, rgba(12, 36, 73, 1) 52%, rgba(26, 30, 59, 1) 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg, rgba(96, 143, 149, 1) 0%, rgba(0, 133, 136, 1) 9%, rgba(12, 36, 73, 1) 52%, rgba(26, 30, 59, 1) 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#608f95', endColorstr='#1a1e3b', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .container {
+            height: 100%;
+        }
+        /* powered by https://sohipm.com */
+    </style>
+</head>
+
+<body>
+    <div class="container background-color: rgb(255,150,255);">
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <!-- <h1 style="text-align: center; color: #f2f2f2;" >Welcome To Climate Change Chatbot</h1> -->
+            <!--  class="col-md-8 col-md-offset-2" -->
+            <!-- d-flex align-items-center justify-content-center  -->
+            <div class="col-md-8 col-md-offset-2">
+                <div id="chatPanel" class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong><span class="bi bi-robot"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-robot" viewBox="0 0 16 16">
+                            <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135"/>
+                            <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5"/>
+                          </svg></span> Welcome To Bao Chatbot !</strong>
+                    </div>
+                    <div class="panel-body fixed-panel">
+                        <ul class="media-list">
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <form method="post" id="chatbot-form" >
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter Message" name="messageText"
+                                    id="messageText" autofocus />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="button" id="chatbot-form-btn">Send</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        var exports = {};
+    </script>
+    <script>
+        $(function () {
+
+            $('#chatbot-form-btn').click(function (e) {
+                e.preventDefault();
+                $('#chatbot-form').submit();
+            });
+
+            $('#chatbot-form').submit(function (e) {
+                e.preventDefault();
+                var message = $('#messageText').val();
+                $(".media-list").append(
+                    '<li class="media"><div class="media-body"><div class="media"><div style = "text-align:right; color : #2EFE2E" class="media-body">' +
+                    message + '<hr/></div></div></div></li>');
+
+                $.ajax({
+                    type: "POST",
+                    url: "/ask",
+                    data: $(this).serialize(),
+                    success: function (response) {
+                      
+                        $('#messageText').val('');
+                        var answer = response.answer;
+                        const chatPanel = document.getElementById("chatPanel");
+                        var liElement = document.createElement("li");
+                        var divElement = document.createElement("div");
+                        divElement.classList.add("media-body");
+                        var innerDivElement = document.createElement("div");
+                        innerDivElement.classList.add("media");
+                        var answerDivElement = document.createElement("div");
+                        answerDivElement.classList.add("media-body");
+                        innerDivElement.appendChild(answerDivElement);
+                        divElement.appendChild(innerDivElement);
+                        liElement.appendChild(divElement);
+                        $(".media-list").append(liElement);
+                        
+                        afficherTexteIncremental(answer, answerDivElement);
+                        
+                        var hrElement = document.createElement("hr");
+                        answerDivElement.appendChild(hrElement);
+                        
+                        $(".fixed-panel").stop().animate({
+                            scrollTop: $(".fixed-panel")[0].scrollHeight
+                        }, 1000);
+                    
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+        function afficherTexteIncremental(texte, element) {
+            var index = 0;
+            var interval = setInterval(function() {
+              if (index < texte.length) {
+                element.textContent += texte[index];
+                index++;
+              } else {
+                clearInterval(interval);
+              }
+            }, 25); // Définir le délai entre chaque caractère (en millisecondes)
+        }
+    </script>
+</body>
+
+</html>
